@@ -1,13 +1,12 @@
-import fetch from "node-fetch";
+import axios from "axios";
 
 class Datasource {
   #endpoint = "https://static.ngnrs.io/test/prices";
 
   async getPrices() {
     try {
-      const response = await fetch(this.#endpoint);
-      const parsedRes = await response.json();
-      return this.convertPrices(parsedRes.data.prices);
+      const { data } = await axios.get(this.#endpoint);
+      return this.convertPrices(data.data.prices);
     } catch (e) {
       throw e;
     }

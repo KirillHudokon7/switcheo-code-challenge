@@ -40,6 +40,10 @@ var sum_to_n_c = function (n) {
   return "Not valid, need to add value lesser than max safe integer";
 };
 
-console.log(sum_to_n_a(1000000000));
-console.log(sum_to_n_b(5000000));
+console.log(sum_to_n_a(5));
+console.log(sum_to_n_b(5));
 console.log(sum_to_n_c(5));
+
+console.log(sum_to_n_a(600));
+console.log(sum_to_n_b(10000000000000));
+console.log(sum_to_n_c(555));
