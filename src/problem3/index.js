@@ -15,7 +15,7 @@ class Datasource {
   convertPrices(prices) {
     return prices.map((price) => ({
       pair: price.pair,
-      mid: () => (price.buy + price.sell) / 2, // Idk, Do wee need to divide this value by 100? The description says that the method must return the mid-point value between price.buy and price.sell, but in expected ouput I see, that this value also divided by 100
+      mid: () => (price.buy + price.sell) / 2, //The description says that the method must return the mid-point value between price.buy and price.sell, but in expected ouput I see, that this value also divided by 100. Do wee need to divide this value by 100?
       quote: () => price.pair.slice(-3),
     }));
   }

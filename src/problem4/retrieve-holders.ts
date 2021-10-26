@@ -1,4 +1,6 @@
 import axios from "axios";
+require("dotenv").config({ path: '../../.env' });
+
 
 type HolderToken = {
   TokenHolderAddress: string,
@@ -7,7 +9,7 @@ type HolderToken = {
 
 const contract: string = "0x250b211ee44459dad5cd3bca803dd6a7ecb5d46c";
 
-const apiKey: string = ""; // input your api key
+const apiKey: string | undefined = process.env.API_KEY; // input your api key
 
 const addresses: string[] = [
   "0x123d475e13aa54a43a7421d94caa4459da021c77",
@@ -27,10 +29,10 @@ const getTokenHolderList = async () => {
     });
     if (data.status === "1") {
       data.result.forEach((token: HolderToken) => {
-        const findedAddress: string | undefined = addresses.find(
+        const foundAddress: string | undefined = addresses.find(
           (address) => token.TokenHolderAddress === address
         );
-        if (findedAddress) {
+        if (foundAddress) {
           console.log(
             `${token.TokenHolderAddress} ${token.TokenHolderQuantity}`
           );
