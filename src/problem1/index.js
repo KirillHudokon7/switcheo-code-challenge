@@ -1,14 +1,14 @@
-const showResultWithCheck = (num) =>  {
+function showResultWithCheck(num) {
   return num < Number.MAX_SAFE_INTEGER 
   ? num 
   : "Not valid, need to add value lesser than max safe integer";
 };
 
-var sum_to_n_a = function (n) {
+function sum_to_n_a (n) {
   return showResultWithCheck((n * (n + 1)) / 2);
 };
 
-var sum_to_n_b = function (n) {
+function sum_to_n_b (n) {
   let sum = 0;
   for (let i = 1; i <= n; i++) {
     sum += i;
@@ -16,8 +16,8 @@ var sum_to_n_b = function (n) {
   return showResultWithCheck(sum);
 };
 
-var sum_to_n_c = function (n) {
-  const getRes = (num) => {
+function sum_to_n_c (n) {
+  function getRes (num) {
     if (num === 1) {
       return num;
     } else {
